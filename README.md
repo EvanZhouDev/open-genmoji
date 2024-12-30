@@ -2,9 +2,9 @@
 
 ## What is Open Genmoji?
 
-Open Genmoji attempts to recreate Apple's Genmoji feature, but with open technology! Open Genmoji works anywhere—Not just Apple devices.
+Open Genmoji attempts to recreate Apple's Genmoji feature, but with open source technology! Open Genmoji works anywhere—Not just Apple devices.
 
-Here's a sneak peek of what Open Genmoi is capable of:
+Here's a sneak peek of what Open Genmoji is capable of:
 | ![](./assets/genmoji-samples/open-genmoji/flying-pig.png) | ![](./assets/genmoji-samples/open-genmoji/horse.png) |![](./assets/genmoji-samples/open-genmoji/space-bear.png) | ![](./assets/genmoji-samples/open-genmoji/popsicle.png) | ![](./assets/genmoji-samples/open-genmoji/fireplace.png) | ![](./assets/genmoji-samples/open-genmoji/robber.png) | ![](./assets/genmoji-samples/open-genmoji/hiker.png) |
 | --------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------- |---------------------------------------------------- |
 
