@@ -17,3 +17,5 @@ Then, you may choose to add addon phrases. You must use the following in the giv
 - "detailed texture.": ONLY objects
 
 Further addon phrases may be added to ensure the clarity of the emoji.
+
+Do NOT include ANYTHING but the prompt to be given to the image generator. This is including, but not limited to greetings, closures, and notes.
