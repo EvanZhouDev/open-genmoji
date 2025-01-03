@@ -21,7 +21,7 @@ Here's a sneak peek of what Open Genmoji is capable of:
 <details>
 <summary>Prompts, Apple Genmoji Comparison, and More Information</summary>
 
-All shown emojis were created with Open Genmoji and Prompt Assist. The exact same prompt was given to both Open Genmoji and Apple. Prompt Assist was run with Qwen 2.5 32B Instruct.
+All shown emojis were created with the `flux-dev` Open Genmoji LoRA and Prompt Assist. The exact same prompt was given to both Open Genmoji and Apple. Prompt Assist was run with Qwen 2.5 32B Instruct.
 
 Background of emojis removed with Figma AI.
 
@@ -41,9 +41,9 @@ The 7 samples were selected to demonstrate the ability of Open Genmoji across An
 
 <br>
 
-At its core, Open Genmoji is simply a LoRA file (available on [HuggingFace](https://huggingface.co/EvanZhouDev/open-genmoji)), finetuned based on thousands of Apple emojis, that teaches an image generation model to create emojis. Anywhere you can add a LoRA onto an image generation model, you can use Open Genmoji.
+At its core, Open Genmoji is simply a collection of LoRA files (available on [HuggingFace](https://huggingface.co/EvanZhouDev/open-genmoji)), each finetuned based on thousands of Apple emojis, that teaches an image generation model to create emojis. Anywhere you can add a LoRA onto an image generation model, you can use Open Genmoji.
 
-Open Genmoji also comes with a built special metaprompt, known as [Open Genmoji Prompt Assist](#prompt-assist) to help you create the perfect prompt to make any emoji you want.
+Open Genmoji also comes with a special metaprompts, known as [Open Genmoji Prompt Assist](#prompt-assist) to help you create the perfect prompt to make any emoji you want. Some Open Genmoji LoRAs may have their own metaprompts.
 
 The best part? You can also [use your creation in iOS 18+ as a real emoji](#postprocessing)—Even if your phone doesn't support Apple Intelligence.
 
@@ -71,12 +71,12 @@ Be sure to read the [Important Things to Know](#important-things-to-know) and [T
 
 TL;DR: Use **Python 3.11** and **use HuggingFace** to download weights
 
-1. This project **works best with Python 3.11**. If you have a Python Version Manager, simply instally Python 3.11, and use the `python3.11` command in place of all commands that say `python3`, and also ensure to create your `venv` with `python3.11`
-2. The weights for this project are **hosted on HuggingFace** at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji). Check [Downloading the Finetune](#downloading-the-finetune) below for more info.
+1. This project **works best with Python 3.11**. If you have a Python Version Manager, simply instally Python 3.11, and use the `python3.11` command in place of all commands that say `python3`, and also ensure to create your `.venv` with `python3.11`
+2. The various LoRA weights for this project are **hosted on HuggingFace** at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji). Check [Downloading the Finetune](#downloading-the-finetune) below for more info.
 
 ## Downloading the Finetune
 
-This model available on HuggingFace at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji). However, there's a script included in this repository that makes downloading simple.
+Various Open Genmoji LoRAs are available on HuggingFace at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji). However, there's a script included in this repository that makes downloading these LoRAs simple.
 
 First, clone into this repo:
 
@@ -101,7 +101,9 @@ Now, all you have to do is run the `download.py` script available in the root di
 python3 download.py
 ```
 
-Check that `lora/flux-dev.safetensors` is installed. It should be a 209MB file. You're all good to go!
+You are now able to pick which LoRA you want to install. Each LoRA has a brief description, and the model it works with. For example, let's choose the `flux-dev` LoRA.
+
+Give it a few seconds, and check that `lora/flux-dev.safetensors` is installed. It should be a 209MB file. You're all good to go! Choose the LoRA you want for whatever you're doing.
 
 ## Quickstart
 
@@ -110,9 +112,9 @@ Check that `lora/flux-dev.safetensors` is installed. It should be a 209MB file. 
 If you know what you're doing, here's a quickstart guide:
 
 - Use **Python 3.11** to ensure everything works
-- Get the LoRA for Flux.1 Dev from HuggingFace at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji). Check out [Downloading the Finetune](#downloading-the-finetune) above for more info.
-- A metaprompt for Open Genmoji is available in `METAPROMPT.md`, so you can create the perfect prompt. [Learn more here.](#prompt-assist) I highly recommend using it!
-- Run Flux.1 Dev with the LoRA. Check out [Postprocessing](#postprocessing) to learn how to use your creation as a real emoji in iOS 18
+- Get a LoRA from HuggingFace at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji). Check out [Downloading the Finetune](#downloading-the-finetune) above for more info. There are various available.
+- Metaprompts for Open Genmoji are available in the `metaprompt` folder, so you can create the perfect prompt. [Learn more here.](#prompt-assist) I highly recommend using it!
+- Run the correct image model with the LoRA you downloaded (i.e. Flux.1 Dev). Check out [Postprocessing](#postprocessing) to learn how to use your creation as a real emoji in iOS 18
 
 ## Tips for Prompting
 
@@ -122,7 +124,9 @@ Furthermore, in order to develop a good prompt, I **highly recommend using Promp
 
 ## Prompt Assist
 
-Open Genmoji Prompt Assist is a metaprompt for Open Genmoji, to help you generate the perfect prompt for Open Genmoji finetuned models. Note that this metaprompt is specifically for Apple's emojis. If you are using/making a LoRA for Google, Microsoft, etc. emojis, this metaprompt will not work as well.
+Open Genmoji Prompt Assist is a way to use a metaprompt with Open Genmoji, to help you generate the perfect prompt for the Open Genmoji finetuned models. Note that each finetuned model may have its own metaprompt. See `lora/info.json` to see which metaprompt each model uses. Then, find that metaprompt in the `metaprompt` folder.
+
+> However, if you're generating Apple Emojis, `metaprompt/open-genmoji.md` should work fine.
 
 Here's an example of what Prompt Assist does:
 
@@ -130,15 +134,17 @@ Here's an example of what Prompt Assist does:
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `flying pig` | `emoji of flying pink pig. enlarged head in cartoon style. cute. white wings. head is turned towards viewer. 3D lighting. no cast shadows.` |
 
+> This was generated with `metaprompt/open-genmoji.md`
+
 Now, you can focus on imagining the perfect emoji, while Prompt Assist helps you phrase it in a way that image models can understand.
 
-The metaprompt is available in `METAPROMPT.md`. You can use this prompt in any LLM, such as ChatGPT, to generate a prompt for Open Genmoji.
+The metaprompts can be used in any LLM, such as ChatGPT, to generate a prompt for Open Genmoji.
 
-Check out [LM Studio Prompt Assist and `mflux` Workflow](#lm-studio-prompt-assist-and-mflux-workflow) for my full workflow of using LM Studio and `mflux` together to run Open Genmoji on Mac.
+Check out [LM Studio Prompt Assist and `mflux` Workflow](#lm-studio-prompt-assist-and-mflux-workflow) for my full workflow of using LM Studio and `mflux` together to run Open Genmoji on Mac. This workflow automatically picks the metaprompt for the correct LLM, so you don't need to worry about checking the `info.json`.
 
 ## Tutorial
 
-> This tutorial is specifically for Mac. However, Open Genmoji is completely adaptable for other operating systems. You will just need another tool to run Flux.1 Dev, with a LoRA.
+> This tutorial is **specifically for MacOS**. However, Open Genmoji is completely adaptable for other operating systems. You will just need another tool to run Flux.1 Dev, with a LoRA.
 
 If you're new to Image Generation or locally running models, this is the place for you. This guide will lead you through all the steps necessary to run Open Genmoji, and also use the Open Genmoji Prompt Assist metaprompt.
 
@@ -186,11 +192,13 @@ Here's what those dependencies are:
 - `huggingface_hub`: This will help us download the weights that we need to run Open Genmoji
 - `mflux`: This is a port of Flux (to run our image generation model), specifically for Mac.
 
-Now, let's actually install the weights. They're on HuggingFace at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji), but there's a quick installation script you can run in this directory:
+Now, let's actually install the LoRA. There are various available on HuggingFace at [EvanZhouDev/open-genmoji](https://huggingface.co/EvanZhouDev/open-genmoji), for different uses, but there's a quick installation script you can run in this directory:
 
 ```bash
 python3 ./download.py
 ```
+
+Now, you can pick which LoRA you want. For this tutorial, let's install the one named `flux-dev`. Use arrow keys to navigate to it, and press enter to select.
 
 After it's done installing, verify that `lora/flux-dev.safetensors` is downloaded. That'll be the LoRA that you'll be using.
 
@@ -219,7 +227,7 @@ It's pretty difficult to get a good prompt to make a Apple-like emoji. Thus, we'
 
 The output prompt is now much better, and the generated emoji will be of much better quality.
 
-You can run the metaprompt in any place an LLM is available, including ChatGPT! Go grab the prompt from `METAPROMPT.md`. Then, feed it to the LLM, and after it, include your user prompt. Something like this:
+You can run the metaprompt in any place an LLM is available, including ChatGPT! Each LoRA has its own metaprompt. However in our case, we'll simply be using `metaprompt/open-genmoji.md`, for the `flux-dev` LoRA. Now, give the prompt to the LLM, and after it, include your user prompt. Something like this:
 
 ```
 {METAPROMPT HERE}
@@ -253,11 +261,62 @@ Now, given that LM Studio is correctly set up, you should be able to directly ru
 python3 genmoji.py "[your prompt]"
 ```
 
+> Note that this will automatically use the `flux-dev` LoRA (and will error should it [not be installed](#downloading-the-finetune)). See [Advanced Usage](#advanced-usage) below to see how to use a different LoRA.
+
 And it'll first generate a prompt with LM Studio, and feed that into `mflux`. The output should be saved by default in `output/genmoji-001.png` (Number will increase automatically).
 
 > **Note**: Before it saves, it'll also do the Postprocessing step of resizing it to 5x the size with anti-aliasing (160x160 → 800x800). Learn more in [Postprocessing](#postprocessing)
 
-Now, let's take a look at [Postprocessing](#postprocessing) to start using your creation as an actual emoji in iOS.
+Now, let's take a look at [Postprocessing](#postprocessing) to start using your creation as an actual emoji in iOS, or see [Advanced Usage](#advanced-usage) to learn how to use a different LoRA with this workflow.
+
+#### Advanced Usage
+
+##### Using different LoRA's
+
+This workflow also enables automatic metaprompt selection when using a different LoRA.
+
+All you have to do is call it with an extra argument with flag `--lora` or `-l`, as such:
+
+```bash
+python3 genmoji.py "[your prompt]" --lora [lora name] 
+```
+
+For example, let's use [@caspersimon](https://github.com/caspersimon)'s `diverse-emoji` LoRA. First, you'll need to ensure it's [downloaded with the download script](#downloading-the-finetune). Now, run this command:
+
+```bash
+python3 genmoji.py "[your prompt]" -l diverse-emoji
+```
+
+This will automatically fetch the correct metaprompt, use it, and generate an emoji with the `diverse-emoji` LoRA.
+
+##### Bypassing Prompt Assistant
+
+To directly generate without first using Prompt Assistant, add the `--direct` or `-d` flag to your command
+
+
+```bash
+python3 genmoji.py "emoji of a squirrel" -d
+```
+
+##### Generating at custom resolution
+
+The default resolution is 160x160. To change it, use the `--height` or `-ih` flags to change image height, and `--width` or `-iw` to change image width.
+
+For example, to generate an emoji of a dog wearing sunglasses at 320x320 pixels, run:
+
+```bash
+python3 genmoji.py "dog wearing sunglasses" -ih 320 -iw 320
+```
+
+##### Changing upscale factor
+
+By default, images are scaled up to 5 times their original resolution. To change it, use the `--upscale` or `-u` flags.
+
+For example, to upscale to 2x the original resolution, use:
+
+```bash
+python3 genmoji.py "emoji of a squirrel" -u 2
+```
 
 ## Postprocessing
 
@@ -291,4 +350,4 @@ Open Genmoji is open to more LoRAs for:
 - New/Different sets of emojis
 - More training for existing emoji sets
 
-Check out `finetuning/README.md` for more information about finetuning, and check out `lora/README.md` for the current available LoRAs.
+Check out `finetuning/README.md` for more information about finetuning, and check out `lora/README.md` for the current available LoRAs, as well as more information about how to contribute.

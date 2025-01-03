@@ -9,3 +9,4 @@
 **Finetuning Steps**: How many steps did you use?
 **Image Resolution**: Resolution of emojis used
 **Emoji Dataset**: Which emojis did you use? (Including emoji dataset, when it was sourced, and whether or not it was a subset)
+**Huggingface Link**: Name of your HuggingFace Repo, if you have your own. Add a link to the HuggingFace page. Optional.

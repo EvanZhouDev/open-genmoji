@@ -1,0 +1,16 @@
+[
+	{
+		"model": "black-forest-labs/FLUX.1-dev",
+		"huggingface": "EvanZhouDev/open-genmoji",
+		"name": "flux-dev",
+		"metaprompt": "open-genmoji",
+		"description": "Original Open Genmoji finetune. Trained on Apple Emojis w/o Skin Tone Variants."
+	},
+	{
+		"model": "black-forest-labs/FLUX.1-dev",
+		"huggingface": "caspersimon/Diverse-Emoji",
+		"name": "diverse-emoji",
+		"metaprompt": "open-genmoji",
+		"description": "Comprehensive Genmoji finetune. Trained on every Apple Emoji."
+	}
+]
