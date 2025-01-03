@@ -43,7 +43,7 @@ The 7 samples were selected to demonstrate the ability of Open Genmoji across An
 
 At its core, Open Genmoji is simply a collection of LoRA files (available on [HuggingFace](https://huggingface.co/EvanZhouDev/open-genmoji)), each finetuned based on thousands of Apple emojis, that teaches an image generation model to create emojis. Anywhere you can add a LoRA onto an image generation model, you can use Open Genmoji.
 
-Open Genmoji also comes with a special metaprompts, known as [Open Genmoji Prompt Assist](#prompt-assist) to help you create the perfect prompt to make any emoji you want. Some Open Genmoji LoRAs may have their own metaprompts.
+Open Genmoji also comes with special metaprompts, used in a tool known as [Open Genmoji Prompt Assist](#prompt-assist) to help you create the perfect prompt to make any emoji you want. Some Open Genmoji LoRAs may have their own metaprompts.
 
 The best part? You can also [use your creation in iOS 18+ as a real emoji](#postprocessing)—Even if your phone doesn't support Apple Intelligence.
 
@@ -103,7 +103,7 @@ python3 download.py
 
 You are now able to pick which LoRA you want to install. Each LoRA has a brief description, and the model it works with. For example, let's choose the `flux-dev` LoRA.
 
-Give it a few seconds, and check that `lora/flux-dev.safetensors` is installed. It should be a 209MB file. You're all good to go! Choose the LoRA you want for whatever you're doing.
+Give it a few seconds, and check that `lora/flux-dev.safetensors` is installed. It should be a 209MB file. You're all good to go! If you wish to change up the results, choose the LoRA you want for whatever you're doing.
 
 ## Quickstart
 
@@ -314,10 +314,11 @@ If you want to delete the Sticker, long press and hold (**don't move your finger
 
 ## Contributing
 
-Open Genmoji is open to more LoRAs for:
+Open Genmoji is open to contributions implementing:
 
 - New models
 - New/Different sets of emojis
 - More training for existing emoji sets
+- Compatibility for other operating systems (mflux is only MacOS compatible)
 
 Check out `finetuning/README.md` for more information about finetuning, and check out `lora/README.md` for the current available LoRAs, as well as more information about how to contribute.
