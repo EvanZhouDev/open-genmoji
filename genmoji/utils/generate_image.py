@@ -1,5 +1,5 @@
-from mflux import Flux1, Config, ModelConfig
 import os
+from mflux import Config, Flux1, ModelConfig
 
 
 def generate_image(prompt: str, lora: str, width: int, height: int):
@@ -8,7 +8,7 @@ def generate_image(prompt: str, lora: str, width: int, height: int):
         model_config=ModelConfig.FLUX1_DEV,
         quantize=8,
         lora_paths=[
-            f"{os.path.abspath(os.path.dirname(__file__))}/lora/{lora}.safetensors"
+            f"{os.path.abspath(os.path.dirname(__file__))}/../lora/{lora}.safetensors"
         ],
         lora_scales=[1.0],
     )

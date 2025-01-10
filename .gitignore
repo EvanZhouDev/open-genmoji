@@ -1,4 +1,5 @@
 /.venv
 .DS_Store
 /output
-/__pycache__
+__pycache__
+.env

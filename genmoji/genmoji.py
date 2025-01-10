@@ -1,13 +1,13 @@
-import sys
-from promptAssistant import get_prompt_response
-from generateImage import generate_image
-from PIL import Image
-import os
 import argparse
 import json
+import os
+import sys
+from PIL import Image
+from utils.generate_image import generate_image
+from utils.llm_utils import model_inference
 
 
-def get_unique_path(base_path):
+def get_unique_path(base_path: str) -> str:
     directory = os.path.dirname(base_path)
     filename = os.path.basename(base_path)
     name, ext = os.path.splitext(filename)
@@ -31,6 +31,7 @@ def main(
     upscale_factor: int,
     output_path: str = "output/genmoji.png",
     lora: str = "flux-dev",
+    llm_model: str = "llama3.1:latest"
 ):
     with open("./lora/info.json", "r") as f:
         models = json.load(f)
@@ -57,7 +58,7 @@ def main(
             sys.exit(1)
         if not direct:
             # Get the response from the prompt assistant
-            prompt_response = get_prompt_response(user_prompt, metaprompt)
+            prompt_response = model_inference(user_prompt, llm_model).get("message")
             print("Prompt Created: " + prompt_response)
         elif direct:
             prompt_response = user_prompt

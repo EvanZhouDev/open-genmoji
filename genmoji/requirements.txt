@@ -1,0 +1,6 @@
+fastapi==0.115.6
+python-dotenv==1.0.1
+huggingface-hub==0.27.1
+mflux==0.5.1
+ollama==0.4.5
+uvicorn==0.34.0
