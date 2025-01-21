@@ -219,7 +219,7 @@ mflux-generate \
 
 ### Running Open Genmoji with Prompt Assist
 
-It's pretty difficult to get a good prompt to make a Apple-like emoji. Thus, we'll use a metaprompt... a prompt for an LLM, to make a prompt for Open Genmoji. Here's an example:
+It's pretty difficult to get a good prompt to make an Apple-like emoji. Thus, we'll use a metaprompt... a prompt for an LLM, to make a prompt for Open Genmoji. Here's an example:
 
 | Input        | Output                                                                                                                                      |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -237,7 +237,7 @@ USER PROMPT: {your input}
 
 Then, take the LLM output and feed that to `mflux`. Observe how the output is much better!
 
-Now that you have a image output, head on to [Postprocessing](#postprocessing) to start using your creation as an actual emoji on your iPhone, or learn a bit more below about how to chain Prompt Assist and `mflux` together.
+Now that you have an image output, head on to [Postprocessing](#postprocessing) to start using your creation as an actual emoji on your iPhone, or learn a bit more below about how to chain Prompt Assist and `mflux` together.
 
 ### LM Studio Prompt Assist and `mflux` Workflow
 
