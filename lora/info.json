@@ -12,5 +12,13 @@
 		"name": "diverse-emoji",
 		"metaprompt": "open-genmoji",
 		"description": "Comprehensive Genmoji finetune. Trained on every Apple Emoji."
-	}
+	},
+    {
+        "model": "black-forest-labs/FLUX.1-dev",
+        "huggingface": "henil08/Whatsapp-Freemoji",
+        "name": "whatsapp_freemoji",
+        "metaprompt": "open-genmoji",
+        "description": "Original Freemoji LORA. Trained on WhatsApp's Emojis w/o Skin Tone Variants."
+    }
 ]
+
